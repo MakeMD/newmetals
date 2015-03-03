@@ -1,7 +1,13 @@
 package assets.newmetals.src;
 
+import assets.newmetals.src.blocks.CobaltBlock;
+import assets.newmetals.src.blocks.CobaltIngotItem;
+import assets.newmetals.src.blocks.CobaltOreBlock;
 import assets.newmetals.src.blocks.MercuryOreBlock;
 import assets.newmetals.src.blocks.MercuryTearItem;
+import assets.newmetals.src.blocks.NikelBlock;
+import assets.newmetals.src.blocks.NikelIngotItem;
+import assets.newmetals.src.blocks.NikelOreBlock;
 import assets.newmetals.src.blocks.PalladiumBlock;
 import assets.newmetals.src.blocks.PalladiumIngotItem;
 import assets.newmetals.src.blocks.PalladiumOreBlock;
@@ -29,8 +35,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class NewMetals {
  public static Block zincoreblock, titanoreblock, titanblock, platinumoreblock, platinumblock, palladiumoreblock, palladiumblock;
- public static Block mercuryoreblock;
- public static Item zincingotitem, titaningotitem, platinumingotitem, palladiumingotitem, mercurytearitem;
+ public static Block mercuryoreblock,nikeloreblock,nikelblock,cobaltoreblock,cobaltblock;
+ public static Item zincingotitem, titaningotitem, platinumingotitem, palladiumingotitem, mercurytearitem,nikelingotitem,cobaltingotitem;
 	
        @EventHandler
     public void Load(FMLInitializationEvent event)
@@ -48,6 +54,13 @@ public class NewMetals {
     	   palladiumingotitem = new PalladiumIngotItem(1010).setUnlocalizedName("palladiumingotitem");
     	   mercuryoreblock = new MercuryOreBlock(1011).setUnlocalizedName("mercuryoreblock");
     	   mercurytearitem = new MercuryTearItem(1012).setUnlocalizedName("mercurytearitem");
+    	   nikeloreblock = new NikelOreBlock(1013).setUnlocalizedName("nikeloreblock");
+    	   nikelblock = new NikelBlock(1014).setUnlocalizedName("nikelblock");
+    	   nikelingotitem = new NikelIngotItem(1015).setUnlocalizedName("nikelingotitem");
+    	   cobaltoreblock = new CobaltOreBlock(1016).setUnlocalizedName("cobaltoreblock");
+    	   cobaltblock = new CobaltBlock(1017).setUnlocalizedName("cobaltblock");
+    	   cobaltingotitem = new CobaltIngotItem(1018).setUnlocalizedName("cobaltingotitem");
+    	   
     	   
     	   GameRegistry.registerBlock(platinumoreblock, "platinumoreblock");
     	   GameRegistry.registerBlock(platinumblock, "platinumblock");
@@ -62,7 +75,12 @@ public class NewMetals {
            GameRegistry.registerItem(palladiumingotitem, "palladiumingotitem");
            GameRegistry.registerBlock(mercuryoreblock, "mercuryoreblock");
            GameRegistry.registerItem(mercurytearitem, "mercurytearitem");
-           
+           GameRegistry.registerBlock(nikeloreblock, "nikeloreblock");
+           GameRegistry.registerBlock(nikelblock, "nikelblock");
+           GameRegistry.registerItem(nikelingotitem, "nikelingotitem");
+           GameRegistry.registerBlock(cobaltoreblock, "cobaltoreblock");
+           GameRegistry.registerBlock(cobaltblock, "cobaltblock");
+           GameRegistry.registerItem(cobaltingotitem, "cobaltingotitem");
            LanguageRegistry.instance().addNameForObject(zincoreblock, "en_US", "Zinc Ore");
            LanguageRegistry.instance().addNameForObject(zincingotitem, "en_US", "Zinc Ingot");
            LanguageRegistry.instance().addNameForObject(titanoreblock, "en_US", "Titan Ore");
@@ -76,6 +94,13 @@ public class NewMetals {
            LanguageRegistry.instance().addNameForObject(palladiumingotitem, "en_US", "Palladium Ingot");
            LanguageRegistry.instance().addNameForObject(mercuryoreblock, "en_US", "Mercury Ore");
            LanguageRegistry.instance().addNameForObject(mercurytearitem, "en_US", "Mercury Tear");
+           LanguageRegistry.instance().addNameForObject(nikeloreblock, "en_US", "Nikel Ore");
+           LanguageRegistry.instance().addNameForObject(nikelblock, "en_US", "Nikel Block");
+           LanguageRegistry.instance().addNameForObject(nikelingotitem, "en_US", "Nikel Ingot");
+           LanguageRegistry.instance().addNameForObject(cobaltoreblock, "en_US", "Cobalt Ore");
+           LanguageRegistry.instance().addNameForObject(cobaltblock, "en_US", "Cobalt Block");
+           LanguageRegistry.instance().addNameForObject(cobaltingotitem, "en_US", "Cobalt Ingot");
+           
            
            GameRegistry.addShapelessRecipe(new ItemStack(Item.ingotGold, 4), new Object[] {Item.ingotGold, NewMetals.zincingotitem, NewMetals.zincingotitem});
            
@@ -87,6 +112,10 @@ public class NewMetals {
            GameRegistry.addRecipe(new ItemStack(NewMetals.palladiumblock, 1), new Object[]{"###","###","###", Character.valueOf('#'), NewMetals.palladiumingotitem});
            GameRegistry.addSmelting(NewMetals.palladiumoreblock.blockID, new ItemStack(NewMetals.palladiumingotitem,1), 1.0F);
            GameRegistry.addSmelting(NewMetals.mercuryoreblock.blockID, new ItemStack(NewMetals.mercurytearitem, 1), 1.0F);
+           GameRegistry.addRecipe(new ItemStack(NewMetals.nikelblock, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), NewMetals.nikelingotitem});
+           GameRegistry.addSmelting(NewMetals.nikeloreblock.blockID, new ItemStack(NewMetals.nikelingotitem, 1), 1.0F);
+           GameRegistry.addRecipe(new ItemStack(NewMetals.cobaltblock, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), NewMetals.cobaltingotitem});
+           GameRegistry.addSmelting(NewMetals.cobaltoreblock.blockID, new ItemStack(NewMetals.cobaltingotitem, 1), 1.0F);
            
     }
  
